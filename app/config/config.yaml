@@ -1,0 +1,12 @@
+service:
+  name: config4
+  version: v1.0.3
+http:
+  server:
+    address: 0.0.0.0:8000
+    timeout: 1s
+grpc:
+  server:
+    address: 0.0.0.0:9000
+    timeout: 1s
+
