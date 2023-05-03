@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 package api.helloworld;
+import "google/api/annotations.proto";
 
 option go_package = "helloworld/api/helloworld;helloworld";
 option java_multiple_files = true;
@@ -11,7 +12,11 @@ service Demo {
 	rpc UpdateDemo (UpdateDemoRequest) returns (UpdateDemoReply);
 	rpc DeleteDemo (DeleteDemoRequest) returns (DeleteDemoReply);
 	rpc GetDemo (GetDemoRequest) returns (GetDemoReply);
-	rpc ListDemo (ListDemoRequest) returns (ListDemoReply);
+	rpc ListDemo (ListDemoRequest) returns (ListDemoReply) {
+	    option (google.api.http) = {
+	      get: "/demos/list"
+	    };
+	};
 }
 
 message CreateDemoRequest {}
@@ -27,4 +32,10 @@ message GetDemoRequest {}
 message GetDemoReply {}
 
 message ListDemoRequest {}
-message ListDemoReply {}
+message ListDemoReply {
+	repeated DemoItem demos = 1;
+}
+
+message DemoItem {
+	string name = 1;
+}
