@@ -3,7 +3,7 @@ package service
 import (
 	"context"
 
-	pb "helloworld/api/helloworld"
+	pb "helloworld/api/helloworld/v1"
 )
 
 type DemoService struct {
@@ -27,5 +27,12 @@ func (s *DemoService) GetDemo(ctx context.Context, req *pb.GetDemoRequest) (*pb.
 	return &pb.GetDemoReply{}, nil
 }
 func (s *DemoService) ListDemo(ctx context.Context, req *pb.ListDemoRequest) (*pb.ListDemoReply, error) {
-	return &pb.ListDemoReply{}, nil
+	resp := &pb.ListDemoReply{}
+	resp.Demos = []*pb.DemoItem{
+		{
+			Name: "demo1",
+		},
+	}
+
+	return resp, nil
 }

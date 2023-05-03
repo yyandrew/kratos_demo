@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-http v2.6.1
 // - protoc             v4.22.3
-// source: api/helloworld/demo.proto
+// source: helloworld/v1/demo.proto
 
-package helloworld
+package v1
 
 import (
 	context "context"

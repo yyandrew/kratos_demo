@@ -3,9 +3,9 @@ syntax = "proto3";
 package api.helloworld;
 import "google/api/annotations.proto";
 
-option go_package = "helloworld/api/helloworld;helloworld";
+option go_package = "helloworld/api/helloworld/v1;v1";
 option java_multiple_files = true;
-option java_package = "api.helloworld";
+option java_package = "dev.kratos.api.helloworld.v1";
 
 service Demo {
 	rpc CreateDemo (CreateDemoRequest) returns (CreateDemoReply);

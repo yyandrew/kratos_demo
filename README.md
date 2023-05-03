@@ -1,5 +1,8 @@
 # Kratos Project Template
 
+## Requirements
+1. go 1.20.2
+
 ## Install Kratos
 ```
 go install github.com/go-kratos/kratos/cmd/kratos/v2@latest
