@@ -12,7 +12,7 @@ import (
 )
 
 // NewHTTPServer new a HTTP server.
-func NewHTTPServer(c *conf.Server, greeter *service.GreeterService, logger log.Logger) *http.Server {
+func NewHTTPServer(c *conf.Server, greeter *service.GreeterService, demo *service.DemoService, logger log.Logger) *http.Server {
 	var opts = []http.ServerOption{
 		http.Middleware(
 			recovery.Recovery(),
@@ -32,7 +32,6 @@ func NewHTTPServer(c *conf.Server, greeter *service.GreeterService, logger log.L
 	openAPIhandler := openapiv2.NewHandler()
 	srv.HandlePrefix("/q/", openAPIhandler)
 
-	demo := service.DemoService{}
-	v1.RegisterDemoHTTPServer(srv, &demo)
+	v1.RegisterDemoHTTPServer(srv, demo)
 	return srv
 }
